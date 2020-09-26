@@ -1,0 +1,24 @@
+.options {
+  color: white;
+}
+
+.options__list > ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.options__list {
+  background-color: #4a3f35;
+  height: 50px;
+  font-size: 2rem;
+}
+
+.options__list > ul > a:link {
+  text-decoration: none;
+  color: white;
+}
+.options__list > ul > a:visited {
+  text-decoration: none;
+  color: white;
+}

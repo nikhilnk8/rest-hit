@@ -1,0 +1,11 @@
+.header {
+  align-self: center;
+  margin-top: 20px;
+}
+.header > textarea {
+  border: 0;
+  width: 100%;
+  max-width: 500px;
+  height: 200px;
+  box-shadow: inset 0 0 5px 1px gray;
+}

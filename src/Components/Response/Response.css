@@ -1,13 +1,39 @@
-.response {
+.response__data {
   color: white;
-  border: 2px solid white;
+  /* border: 2px solid rgb(34, 34, 34); */
   margin: 20px 20px;
-  overflow: scroll;
   height: 600px;
   padding: 10px;
+  overflow: scroll;
   background-color: #4a3f35;
+  box-shadow: inset 0 0 8px 1px rgb(34, 34, 34);
+}
+.response__data::-webkit-scrollbar {
+  display: none;
+}
+.response__data > p {
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
 }
 pre {
   max-width: 200px;
   text-align: left;
+  color: rgb(187, 187, 187);
+}
+
+.response__headers {
+  height: 300px;
+  overflow: scroll;
+}
+.response__headers::-webkit-scrollbar {
+  display: none;
+}
+
+.response {
+  margin-top: 50px;
+  max-width: 100%;
+  /* background-color: red; */
+  align-self: center;
+  min-width: 100%;
 }

@@ -5,11 +5,14 @@ import "./HitBar.css";
 
 function HitBar() {
   const [select, setSelect] = useState("GET");
-  const [, setResponse] = useContext(ResponseContext);
-  const hitApiHandler = async () => {
-    setResponse(await hitApi());
+  const [, setResponse, , setResponseData] = useContext(ResponseContext);
+  const [url, setUrl] = useState("https://api.github.com/users/1");
+  // send button handler
+  const hitApiHandler = async (link) => {
+    setResponse(await hitApi(link));
+    let data = await hitApi(link);
+    setResponseData(data.data);
   };
-  // console.log(response);
 
   return (
     <div className="hitbar">
@@ -19,8 +22,12 @@ function HitBar() {
         <option value="PUT">PUT</option>
         <option value="DELETE">DELETE</option>
       </select>
-      <input placeholder="End point" />
-      <button onClick={hitApiHandler}>Send</button>
+      <input
+        placeholder="End point"
+        onChange={(e) => setUrl(e.target.value)}
+        value={url}
+      />
+      <button onClick={() => hitApiHandler(url)}>Send</button>
     </div>
   );
 }

@@ -1,8 +1,10 @@
 import Axios from "axios";
 
-export const hitApi = async () => {
-  const response = await Axios.get(
-    "https://jsonplaceholder.typicode.com/todos/"
-  );
-  return response.data;
+export const hitApi = async (url) => {
+  try {
+    const response = await Axios.get(url);
+    return response;
+  } catch (error) {
+    return error.message;
+  }
 };
