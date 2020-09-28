@@ -4,16 +4,19 @@ import HitBar from "./Components/HitBar/HitBar";
 import Options from "./Components/Options/Options";
 import Response from "./Components/Response/Response";
 import { ResponseContextProvider } from "./Context/responseContext";
+import { RequestContextProvider } from "./Context/requestContext";
 
 function App() {
   return (
     <ResponseContextProvider>
-      <header className="App-header">REST HIT</header>
-      <div className="App">
-        <HitBar />
-        <Options />
-        <Response />
-      </div>
+      <RequestContextProvider>
+        <header className="App-header">REST HIT</header>
+        <div className="App">
+          <HitBar />
+          <Options />
+          <Response />
+        </div>
+      </RequestContextProvider>
     </ResponseContextProvider>
   );
 }

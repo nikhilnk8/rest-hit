@@ -1,17 +1,34 @@
 import React, { useState, useContext } from "react";
-import { hitApi } from "../../api";
+import { HitApi } from "../../api";
+import { RequestContext } from "../../Context/requestContext";
 import { ResponseContext } from "../../Context/responseContext";
 import "./HitBar.css";
 
 function HitBar() {
-  const [select, setSelect] = useState("GET");
   const [, setResponse, , setResponseData] = useContext(ResponseContext);
-  const [url, setUrl] = useState("https://api.github.com/users/1");
+  const [
+    ,
+    ,
+    ,
+    ,
+    ,
+    select,
+    setSelect,
+    url,
+    setUrl,
+    body,
+    setBody,
+    headers,
+    setHeaders,
+  ] = useContext(RequestContext);
+
+  console.log(body);
   // send button handler
-  const hitApiHandler = async (link) => {
-    setResponse(await hitApi(link));
-    let data = await hitApi(link);
-    setResponseData(data.data);
+  const hitApiHandler = async (method, headers, body, url) => {
+    setResponse(await HitApi(method, headers, body, url));
+    let data = await HitApi(method, headers, body, url);
+    console.log(data);
+    setResponseData(data.data ? data.data : data);
   };
 
   return (
@@ -27,7 +44,9 @@ function HitBar() {
         onChange={(e) => setUrl(e.target.value)}
         value={url}
       />
-      <button onClick={() => hitApiHandler(url)}>Send</button>
+      <button onClick={() => hitApiHandler(select, headers, body, url)}>
+        Send
+      </button>
     </div>
   );
 }
