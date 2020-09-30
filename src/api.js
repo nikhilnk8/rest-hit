@@ -1,6 +1,4 @@
 import Axios from "axios";
-import React, { useContext } from "react";
-import { RequestContext } from "./Context/requestContext";
 
 export const HitApi = async (method, headers, body, url) => {
   try {

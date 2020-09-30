@@ -10,6 +10,9 @@ export function RequestContextProvider({ children }) {
   const [url, setUrl] = useState("https://reqres.in/api/users");
   const [body, setBody] = useState();
   const [headers, setHeaders] = useState();
+  const [query, setquery] = useState([{}]);
+  const [key, setKey] = useState("");
+  const [value, setValue] = useState("");
   return (
     <RequestContext.Provider
       value={[
@@ -26,6 +29,12 @@ export function RequestContextProvider({ children }) {
         setBody,
         headers,
         setHeaders,
+        query,
+        setquery,
+        key,
+        setKey,
+        value,
+        setValue,
       ]}
     >
       {children}
