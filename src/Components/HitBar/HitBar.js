@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { HitApi } from "../../api";
 import { RequestContext } from "../../Context/requestContext";
 import { ResponseContext } from "../../Context/responseContext";
@@ -17,17 +17,23 @@ function HitBar() {
     url,
     setUrl,
     body,
-    setBody,
+    ,
     headers,
-    setHeaders,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    queryObj,
   ] = useContext(RequestContext);
 
   console.log(body);
   // send button handler
-  const hitApiHandler = async (method, headers, body, url) => {
-    setResponse(await HitApi(method, headers, body, url));
-    let data = await HitApi(method, headers, body, url);
-    console.log(data);
+  const hitApiHandler = async (method, headers, body, url, queryObj) => {
+    setResponse(await HitApi(method, headers, body, url, queryObj));
+    let data = await HitApi(method, headers, body, url, queryObj);
     setResponseData(data.data ? data.data : data);
   };
 
@@ -44,7 +50,9 @@ function HitBar() {
         onChange={(e) => setUrl(e.target.value)}
         value={url}
       />
-      <button onClick={() => hitApiHandler(select, headers, body, url)}>
+      <button
+        onClick={() => hitApiHandler(select, headers, body, url, queryObj)}
+      >
         Send
       </button>
     </div>

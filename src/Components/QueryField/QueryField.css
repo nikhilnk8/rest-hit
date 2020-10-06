@@ -1,1 +1,17 @@
+.queryField > input {
+  padding: 1%;
+  border-radius: 5px;
+  border: 0;
+  margin: 2px;
+}
 
+.queryField {
+  align-self: center;
+}
+.queryField > button {
+  height: 33px;
+  border-radius: 5px;
+  border: 0;
+  width: 30px;
+  margin: 2px;
+}

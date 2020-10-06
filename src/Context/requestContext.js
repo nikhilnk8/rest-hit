@@ -13,6 +13,7 @@ export function RequestContextProvider({ children }) {
   const [query, setquery] = useState([{}]);
   const [key, setKey] = useState("");
   const [value, setValue] = useState("");
+  const [queryObj, setQueryObj] = useState([{}]);
   return (
     <RequestContext.Provider
       value={[
@@ -35,6 +36,8 @@ export function RequestContextProvider({ children }) {
         setKey,
         value,
         setValue,
+        queryObj,
+        setQueryObj,
       ]}
     >
       {children}
